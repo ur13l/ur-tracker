@@ -1,3 +1,30 @@
-<h1>
-  {{title}}
-</h1>
+
+<div flex="flex">
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <h2 flex="flex" md-truncate="md-truncate"><a href="/">Stack</a></h2>
+    </div>
+  </md-toolbar>
+  <md-sidenav class="md-sidenav-left" md-component-id="left" style="min-height:100%;" md-is-locked-open="$mdMedia(&quot;gt-md&quot;)" md-whiteframe="4">
+    <div>
+      <md-list flex="flex">
+        <md-list-item class="md-1-line" ng-click="location.href='/'">
+          <div class="md-list-item-text" layout="column">
+            <h3>New file</h3>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-1-line" ng-click="location.href='/preview'" md-nav-click="goto('prev')" name="prev">
+          <div class="md-list-item-text" layout="column">
+            <h3>Preview</h3>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-1-line" ng-click="location.href='/highlights'">
+          <div class="md-list-item-text" layout="column">
+            <h3>Highlights</h3>
+          </div>
+        </md-list-item>
+      </md-list>
+    </div>
+  </md-sidenav>
+  <router-outlet></router-outlet>
+</div>
