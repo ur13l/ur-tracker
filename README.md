@@ -1,5 +1,6 @@
-# UrTracker
 
+# UrTracker
+ur-tracker is an app to retrieve information about the location of users and keeping track of their travels.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
 
 ## Development server
