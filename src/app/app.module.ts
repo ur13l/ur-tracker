@@ -6,8 +6,8 @@ import { routes } from './app.router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
-
+import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule } from '@angular/material';
+//import { BaseFxDirectiveAdapter } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +23,8 @@ import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModu
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
+    MdInputModule,
+    //BaseFxDirectiveAdapter,
     routes
   ],
   providers: [],
