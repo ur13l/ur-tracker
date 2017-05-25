@@ -1,18 +1,27 @@
 
-<div>
-  <md-card>
-    <md-card-title>Iniciar sesión</md-card-title>
-    <md-card-content fxLayout="fxLayout">
-      <div flex="flex">
-        <md-input-container flex="flex">
-          <input type="text" placeholder="Email" mdInput="mdInput"/>
-        </md-input-container>
+<div class="background">
+  <div class="container">
+    <div class="row">
+      <h1 class="six columns offset-by-three">UrTracker</h1>
+    </div>
+    <form (ngSubmit)="login()">
+      <div class="row">
+        <div class="six columns offset-by-three">
+          <label for="emailInput">Email</label>
+          <input class="u-full-width" id="emailInput" type="email" placeholder="example@domain.com" name="email" [(ngModel)]="model.email"/>
+        </div>
       </div>
-      <div flex="flex">
-        <md-input-container flex="flex">
-          <input type="password" placeholder="Contraseña" mdInput="mdInput"/>
-        </md-input-container>
+      <div class="row">
+        <div class="six columns offset-by-three">
+          <label for="passwordInput">Password</label>
+          <input class="u-full-width" id="passwordInput" type="password" name="password" [(ngModel)]="model.password"/>
+        </div>
       </div>
-    </md-card-content>
-  </md-card>
+      <div class="row">
+        <div class="six columns offset-by-three">
+          <input class="button-primary u-full-width" type="submit" value="Submit"/>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

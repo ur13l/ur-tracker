@@ -1,13 +1,19 @@
+import { requestOptionsProvider } from './_services/default-request-options.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+//Router
 import { routes } from './app.router';
+
+//Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule } from '@angular/material';
-//import { BaseFxDirectiveAdapter } from '@angular/flex-layout';
+
+//Services
+import { AuthenticationService } from './_services/index'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,17 +23,12 @@ import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModu
     BrowserModule,
     FormsModule,
     HttpModule,
-    BrowserAnimationsModule,
-    MdButtonModule,
-    MdCardModule,
-    MdMenuModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdInputModule,
-    //BaseFxDirectiveAdapter,
     routes
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    requestOptionsProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

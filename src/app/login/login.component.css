@@ -1,0 +1,9 @@
+div.background {
+    height: 100%;
+}
+
+
+div.container {
+  background-color: white;
+  top:100px;
+}

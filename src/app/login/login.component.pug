@@ -1,10 +1,19 @@
-div
-  md-card
-    md-card-title Iniciar sesión
-    md-card-content(fxLayout)
-      div(flex)
-        md-input-container(flex)
-          input(type='text', placeholder='Email' mdInput)
-      div(flex)
-        md-input-container(flex)
-          input(type='password', placeholder='Contraseña' mdInput)
+div.background
+  div.container
+    .row
+      h1.six.columns.offset-by-three UrTracker
+    form((ngSubmit)="login()")
+      .row
+        .six.columns.offset-by-three
+          label(for='emailInput') Email
+          input#emailInput.u-full-width(type='email', placeholder='example@domain.com', 
+            name="email", [(ngModel)]="model.email")
+
+      .row
+        .six.columns.offset-by-three
+          label(for='passwordInput') Password
+          input#passwordInput.u-full-width(type='password', name='password', [(ngModel)]="model.password")
+
+      .row
+        .six.columns.offset-by-three
+          input.button-primary.u-full-width(type='submit', value='Submit')
