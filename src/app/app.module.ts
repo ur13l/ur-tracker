@@ -1,3 +1,5 @@
+import { AuthGuard } from './_guards/auth.guard';
+import { AlertComponent } from './_directives/alert.component';
 import { requestOptionsProvider } from './_services/default-request-options.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,12 +14,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 //Services
-import { AuthenticationService } from './_services/index'
+import { AuthenticationService, AlertService } from './_services/index';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AlertComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,8 @@ import { AuthenticationService } from './_services/index'
   ],
   providers: [
     AuthenticationService,
+    AlertService,
+    AuthGuard,
     requestOptionsProvider
   ],
   bootstrap: [AppComponent]

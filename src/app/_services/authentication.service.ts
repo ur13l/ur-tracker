@@ -13,7 +13,6 @@ export class AuthenticationService {
           return this.http.post('http://localhost/ur-tracker-backend/public/api/user/login',
           JSON.stringify({ email: email, password: password }))
               .map((response: Response) => {
-                  // login successful if there's a jwt token in the response
                   return response.json();
               });
       }

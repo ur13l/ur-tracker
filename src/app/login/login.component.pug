@@ -1,24 +1,25 @@
 div.background
-  div.container
+  div.container.four.columns.offset-by-four
     .row
-      h1.six.columns.offset-by-three UrTracker
-    form((ngSubmit)="login()", #f="ngForm")
+      h1 UrTracker
+    alert  
+    form((ngSubmit)="f.form.valid && login()", #f="ngForm")
       .row
-        .six.columns.offset-by-three
-          label(for='emailInput') Email
-          input#emailInput.u-full-width(type='email', placeholder='example@domain.com',
+        div
+          label(for='emailInput') Email or username
+          input#emailInput.u-full-width(type="text",
             name="email", [(ngModel)]="model.email" #email="ngModel" required)
           div.alert-danger(*ngIf="email.errors && f.submitted")
-            p([hidden]="!email.errors.required && !onSubmit") El email es requerido
+            p([hidden]="!email.errors.required") The email is required
       br
       .row
-        .six.columns.offset-by-three
+        div
           label(for='passwordInput') Password
           input#passwordInput.u-full-width(type='password', name='password',
             [(ngModel)]="model.password", #password="ngModel" required)
           div.alert-danger(*ngIf="password.errors && f.submitted")
-            p([hidden]="!password.errors.required && !onSubmit") Ingresa tu contraseña
+            p([hidden]="!password.errors.required && !onSubmit") The password is required
 
       .row
-        .six.columns.offset-by-three
-          input.button-primary.u-full-width(type='submit', value='Submit')
+        div
+          input.button-primary.u-full-width([disabled]="loading" type='submit', value='Submit')

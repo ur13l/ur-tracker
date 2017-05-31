@@ -1,31 +1,32 @@
 
 <div class="background">
-  <div class="container">
+  <div class="container four columns offset-by-four">
     <div class="row">
-      <h1 class="six columns offset-by-three">UrTracker</h1>
+      <h1>UrTracker</h1>
     </div>
-    <form (ngSubmit)="login()" #f="ngForm">
+    <alert> </alert>
+    <form (ngSubmit)="f.form.valid &amp;&amp; login()" #f="ngForm">
       <div class="row">
-        <div class="six columns offset-by-three">
-          <label for="emailInput">Email</label>
-          <input class="u-full-width" id="emailInput" type="email" placeholder="example@domain.com" name="email" [(ngModel)]="model.email" #email="ngModel" required="required"/>
+        <div>
+          <label for="emailInput">Email or username</label>
+          <input class="u-full-width" id="emailInput" type="text" name="email" [(ngModel)]="model.email" #email="ngModel" required="required"/>
           <div class="alert-danger" *ngIf="email.errors &amp;&amp; f.submitted">
-            <p [hidden]="!email.errors.required &amp;&amp; !onSubmit">El email es requerido</p>
+            <p [hidden]="!email.errors.required">The email is required</p>
           </div>
         </div>
       </div><br/>
       <div class="row">
-        <div class="six columns offset-by-three">
+        <div>
           <label for="passwordInput">Password</label>
           <input class="u-full-width" id="passwordInput" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required="required"/>
           <div class="alert-danger" *ngIf="password.errors &amp;&amp; f.submitted">
-            <p [hidden]="!password.errors.required &amp;&amp; !onSubmit">Ingresa tu contraseña</p>
+            <p [hidden]="!password.errors.required &amp;&amp; !onSubmit">The password is required</p>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="six columns offset-by-three">
-          <input class="button-primary u-full-width" type="submit" value="Submit"/>
+        <div>
+          <input class="button-primary u-full-width" [disabled]="loading" type="submit" value="Submit"/>
         </div>
       </div>
     </form>

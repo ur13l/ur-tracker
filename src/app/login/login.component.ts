@@ -1,3 +1,6 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { AlertService } from './../_services/alert.service';
+import { User } from './../_model/user';
 import { AuthenticationService } from './../_services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,34 +10,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: any = {};
+  model: User = new User();
   loading: boolean = false;
+  returnUrl: string;
+  errors: {
+    badlogin: false,
+    email: false,
 
-  constructor(private authenticationService: AuthenticationService) {
+  }
+
+  constructor(
+    private route: ActivatedRoute,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService,
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
     this.authenticationService.logout();
+
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
     var self = this;
     self.loading = true;
     self.authenticationService.login(this.model.email, this.model.password)
-                .subscribe(
-                    data => {
-                        if(data.success) {
-                          //Redirección
-                          self.model.email = "SUCCESS";
-                        }
-                        else {
-                          self.model.email = "MIERDA";
-                        }
-                    },
-                    error => {
-
-                        this.loading = false;
-                    });
+      .subscribe(
+          data => {
+            this.loading = false;
+            if(data.success) {
+              //Redirección
+              localStorage.urTrackerUser = JSON.stringify(data.data);
+              this.router.navigate([this.returnUrl]);
+            }
+            else {
+              this.alertService.error(data.errors[0]);
+            }
+          },
+          error => {
+              this.loading = false;
+          });
   }
 
 }

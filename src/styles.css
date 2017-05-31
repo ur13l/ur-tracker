@@ -10,3 +10,24 @@ html {
 body {
   height:100%;
 }
+
+div.background {
+    height: 100%;
+}
+
+div.container {
+  background-color: white;
+  top:100px;
+}
+
+.alert-danger > p{
+  color: red;
+}
+
+.alert-success {
+    color: green;
+}
+
+.alert-danger {
+    color: red;
+}
