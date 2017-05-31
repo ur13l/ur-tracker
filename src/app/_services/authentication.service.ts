@@ -10,15 +10,11 @@ export class AuthenticationService {
    }
 
   login(email: string, password: string) {
-          return this.http.post('http://localhost/ur-tracker-backend/public/api/user/login', 
+          return this.http.post('http://localhost/ur-tracker-backend/public/api/user/login',
           JSON.stringify({ email: email, password: password }))
               .map((response: Response) => {
                   // login successful if there's a jwt token in the response
-                  let user = response.json();
-                  if (user && user.success) {
-                      // store user details and jwt token in local storage to keep user logged in between page refreshes
-                      localStorage.setItem('currentUser', JSON.stringify(user.data));
-                  }
+                  return response.json();
               });
       }
 

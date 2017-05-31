@@ -2,17 +2,22 @@ div.background
   div.container
     .row
       h1.six.columns.offset-by-three UrTracker
-    form((ngSubmit)="login()")
+    form((ngSubmit)="login()", #f="ngForm")
       .row
         .six.columns.offset-by-three
           label(for='emailInput') Email
-          input#emailInput.u-full-width(type='email', placeholder='example@domain.com', 
-            name="email", [(ngModel)]="model.email")
-
+          input#emailInput.u-full-width(type='email', placeholder='example@domain.com',
+            name="email", [(ngModel)]="model.email" #email="ngModel" required)
+          div.alert-danger(*ngIf="email.errors && f.submitted")
+            p([hidden]="!email.errors.required && !onSubmit") El email es requerido
+      br
       .row
         .six.columns.offset-by-three
           label(for='passwordInput') Password
-          input#passwordInput.u-full-width(type='password', name='password', [(ngModel)]="model.password")
+          input#passwordInput.u-full-width(type='password', name='password',
+            [(ngModel)]="model.password", #password="ngModel" required)
+          div.alert-danger(*ngIf="password.errors && f.submitted")
+            p([hidden]="!password.errors.required && !onSubmit") Ingresa tu contraseña
 
       .row
         .six.columns.offset-by-three
