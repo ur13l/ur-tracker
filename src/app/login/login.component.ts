@@ -1,3 +1,4 @@
+import { UrTrackerPage } from './../../../e2e/app.po';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from './../_services/alert.service';
 import { User } from './../_model/user';
@@ -13,11 +14,6 @@ export class LoginComponent implements OnInit {
   model: User = new User();
   loading: boolean = false;
   returnUrl: string;
-  errors: {
-    badlogin: false,
-    email: false,
-
-  }
 
   constructor(
     private route: ActivatedRoute,
@@ -28,9 +24,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authenticationService.logout();
-
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    if(localStorage.urTrackerUser) {
+      this.router.navigate([this.returnUrl]);
+    }
   }
 
   login() {

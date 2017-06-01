@@ -1,0 +1,9 @@
+div.background
+    .toolbar.twelve.columns.primary-color  
+        h1.eight.columns.fit.white-text UrTracker
+        p.two.columns.white-text {{user.email}}
+        p.two.columns.white-text {{user.email}}
+
+    .three.columns.sidebar.lighter-grey
+        ul
+            li.item-list.hoverable(*ngFor="let item of list") {{item.nombre}}

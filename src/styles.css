@@ -9,6 +9,7 @@ html {
 
 body {
   height:100%;
+  margin:0px;
 }
 
 div.background {
@@ -20,14 +21,77 @@ div.container {
   top:100px;
 }
 
+.fit {
+  height: 100%;
+}
+
+/**
+Alerts
+**/
 .alert-danger > p{
   color: red;
 }
 
 .alert-success {
-    color: green;
+    color: #13CE66;
 }
 
 .alert-danger {
     color: red;
+}
+
+
+/**
+Components
+**/
+.toolbar {
+  height: 70px;
+  padding:5px;
+}
+
+.list-container {
+  margin: 0px;
+  padding:0px;
+}
+
+.hoverable:hover {
+  background: #13CE66;
+}
+
+.item-list {
+  height:80px;
+  list-style: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.sidebar {
+  margin: 0px;
+}
+
+/**
+Colors
+**/
+.primary-color {
+  background: #13CE66;
+}
+
+.accent-color {
+  background: #FF8623;
+}
+
+.lighter-grey {
+  background: #f9f9f9;
+}
+
+.primary-color-text {
+  color: #13CE66;
+}
+
+.accent-color-text {
+  color: #FF8623
+}
+
+.white-text {
+  color: white;
 }
