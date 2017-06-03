@@ -1,13 +1,16 @@
 
 <div class="background">
-  <div class="toolbar twelve columns primary-color"> 
+  <div class="toolbar twelve columns primary-color">
     <h1 class="eight columns fit white-text">UrTracker</h1>
     <p class="two columns white-text">{{user.email}}</p>
-    <p class="two columns white-text">{{user.email}}</p>
+    <p class="two columns white-text"><a class="white-text">Cerrar sesión</a></p>
   </div>
   <div class="three columns sidebar lighter-grey">
     <ul>
       <li class="item-list hoverable" *ngFor="let item of list">{{item.nombre}}</li>
     </ul>
+  </div>
+  <div class="eleven columns offset-by-two content accent-color">
+    <p>Selecciona el viaje de tu preferencia.</p>
   </div>
 </div>

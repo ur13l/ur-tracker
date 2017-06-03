@@ -1,9 +1,11 @@
 div.background
-    .toolbar.twelve.columns.primary-color  
+    .toolbar.twelve.columns.primary-color
         h1.eight.columns.fit.white-text UrTracker
         p.two.columns.white-text {{user.email}}
-        p.two.columns.white-text {{user.email}}
-
+        p.two.columns.white-text
+            a.white-text Cerrar sesión
     .three.columns.sidebar.lighter-grey
         ul
             li.item-list.hoverable(*ngFor="let item of list") {{item.nombre}}
+    .eleven.columns.offset-by-two.content.accent-color
+        p Selecciona el viaje de tu preferencia.

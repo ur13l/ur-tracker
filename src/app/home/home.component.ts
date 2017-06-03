@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
     {nombre:"Cuatro"},
     {nombre:"Cinco"},
     {nombre:"Seis"},
+    {nombre:"Siete"},
+    {nombre:"Siete"},
+    {nombre:"Siete"},
     {nombre:"Siete"}
  ]
 
