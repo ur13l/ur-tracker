@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 //Services
-import { AuthenticationService, AlertService } from './_services/index';
+import { AuthenticationService, AlertService, TravelsService } from './_services/index';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -33,6 +33,7 @@ import { HomeComponent } from './home/home.component';
   providers: [
     AuthenticationService,
     AlertService,
+    TravelsService,
     AuthGuard,
     requestOptionsProvider
   ],

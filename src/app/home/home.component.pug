@@ -6,6 +6,6 @@ div.background
             a.white-text Cerrar sesión
     .three.columns.sidebar.lighter-grey
         ul
-            li.item-list.hoverable(*ngFor="let item of list") {{item.nombre}}
+            li.item-list.hoverable(*ngFor="let item of user.travels") {{item.start_time}}
     .eleven.columns.offset-by-two.content.accent-color
         p Selecciona el viaje de tu preferencia.

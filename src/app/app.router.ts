@@ -12,6 +12,6 @@ export const router: Routes = [
   { path: 'login', component: LoginComponent }
 ];
 
-
+export const baseURL = "http://localhost/ur-tracker-backend/public";
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
