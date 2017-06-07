@@ -12,6 +12,10 @@ body {
   margin:0px;
 }
 
+a {
+  cursor: pointer;
+}
+
 div.background {
     height: 100%;
 }
@@ -25,6 +29,14 @@ div.container {
   height: 100%;
 }
 
+.fit-width {
+  width: 100%;
+  display: inline;
+}
+
+.center {
+  text-align: center;
+}
 /**
 Alerts
 **/
@@ -92,7 +104,7 @@ a:hover{
 Colors
 **/
 .primary-color {
-  background: #13CE66;
+  background-color: #13CE66 !important;
 }
 
 .accent-color {
@@ -116,5 +128,5 @@ Colors
 }
 
 .white-text {
-  color: white;
+  color: white !important;
 }

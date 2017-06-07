@@ -1,16 +1,15 @@
 
 <div class="background">
-  <div class="toolbar twelve columns primary-color">
-    <h1 class="eight columns fit white-text">UrTracker</h1>
-    <p class="two columns white-text">{{user.email}}</p>
-    <p class="two columns white-text"><a class="white-text">Cerrar sesión</a></p>
-  </div>
+  <ur-navbar [user]="user"></ur-navbar>
   <div class="three columns sidebar lighter-grey">
     <ul>
-      <li class="item-list hoverable" *ngFor="let item of user.travels">{{item.start_time}}</li>
+      <li class="item-list hoverable" *ngFor="let item of user.travels">
+         {{item.start_time | amFromUnix | amDateFormat:'DD/MM/YYYY'}}</li>
     </ul>
   </div>
   <div class="eleven columns offset-by-two content accent-color">
-    <p>Selecciona el viaje de tu preferencia.</p>
+    <sebm-google-map [latitude]="0" [longitude]="0" style="height:100%;">
+      <sebm-google-map-marker [latitude]="0"></sebm-google-map-marker>
+    </sebm-google-map>
   </div>
 </div>

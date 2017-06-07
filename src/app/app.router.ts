@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards/auth.guard';
 import {ModuleWithProviders} from '@angular/core';
@@ -9,7 +10,8 @@ import {LoginComponent} from './login/login.component';
 
 export const router: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent}
 ];
 
 export const baseURL = "http://localhost/ur-tracker-backend/public";

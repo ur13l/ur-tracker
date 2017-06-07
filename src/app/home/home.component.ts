@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   private user : User = new User();
+  
   private page = 1
 
   constructor(

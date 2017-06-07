@@ -1,3 +1,4 @@
+import { User } from './../_model/user';
 import { baseURL } from './../app.router';
 import { Injectable } from '@angular/core';
 import { Headers, Response, Http, RequestOptions } from '@angular/http';
@@ -20,6 +21,14 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('urTrackerUser');
+    }
+
+    checkUser(user: User) {
+        return this.http.post(baseURL + '/api/user/check',
+        JSON.stringify({api_token: user.api_token}))
+        .map((response: Response) => {
+            return response.json().data;
+        });
     }
 }
