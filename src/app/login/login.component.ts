@@ -25,24 +25,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    //TODO: Change validation to avoid login into the system even when the user is invalid.
-    if(localStorage.urTrackerUser) {
-      try {
-        let user = JSON.parse(localStorage.urTrackerUser);
-        this.authenticationService.checkUser(user).subscribe(
-          data => {
-            if(data) {
-              this.router.navigate([this.returnUrl]);
-            }
-          },
-          error => {
-
-          }
-        );
-      } catch (e){
-        console.log("Invalid user: " + e);
-      }
-    }
+    this.authenticationService.redirectUserIfAuthenticated(this.router, this.returnUrl);
+    
     
   }
 
