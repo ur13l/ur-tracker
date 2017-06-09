@@ -23,13 +23,22 @@ export class LoginComponent implements OnInit {
   ) {
   }
 
+  /**
+   * Code executed when the component is loaded
+   */
   ngOnInit() {
+    //ReturnURL saves the last url if a redirection to the login view is done.
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+    //Executed when the user is already authenticated, if that happens, this view must not be displayed.
     this.authenticationService.redirectUserIfAuthenticated(this.router, this.returnUrl);
     
     
   }
 
+  /**
+   * Method that calls de authenticateService's 'login' function to authenticate a user with email and password.
+   */
   login() {
     var self = this;
     self.loading = true;
@@ -38,7 +47,7 @@ export class LoginComponent implements OnInit {
           data => {
             this.loading = false;
             if(data.success) {
-              //Redirección
+              //Redirect
               localStorage.urTrackerUser = JSON.stringify(data.data);
               this.router.navigate([this.returnUrl]);
             }

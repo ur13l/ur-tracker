@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 //Services
-import { AuthenticationService, AlertService, TravelsService } from './_services/index';
+import { AuthenticationService, AlertService, TravelsService, UserService } from './_services/index';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
@@ -45,7 +45,8 @@ import { RegisterComponent } from './register/register.component';
     AlertService,
     TravelsService,
     AuthGuard,
-    requestOptionsProvider
+    requestOptionsProvider,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
