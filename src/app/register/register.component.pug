@@ -9,23 +9,25 @@ div.background
         div
           label(for='emailInput') Email
           input#emailInput.u-full-width(type="text",
-            name="email", [(ngModel)]="user.email" #email="ngModel" required)
+            name="email", [(ngModel)]="user.email" #email="ngModel" validateEmail required)
           div.alert-danger(*ngIf="email.errors && f.submitted")
             p([hidden]="!email.errors.required") The email is required
+            p([hidden]="email.valid && !onSubmit") Not a valid email
       .row
         div
           label(for='passwordInput') Password
           input#passwordInput.u-full-width(type='password', name='password',
-            [(ngModel)]="user.password", #password="ngModel" required)
+            [(ngModel)]="user.password", #password="ngModel" required minlength="6")
           div.alert-danger(*ngIf="password.errors && f.submitted")
             p([hidden]="!password.errors.required && !onSubmit") The password is required
+            p([hidden]="!password.errors.minlength && !onSubmit") The minimum length is 6
       .row
         div
           label(for='confirmPasswordInput') Confirm password
           input#confirmPasswordInput.u-full-width(type='password', name='confirm-password',
-            [(ngModel)]="user.password_confirmation", #confirmPassword="ngModel" required)
-          div.alert-danger(*ngIf="confirmPassword.errors && f.submitted")
-            p([hidden]="!confirmPassword.errors.required && !onSubmit") This field is required.
+            [(ngModel)]="user.password_confirmation", validateEqual="password", #confirmPassword="ngModel")
+          div.alert-danger(*ngIf="!confirmPassword.valid && f.submitted")
+            p([hidden]="confirmPassword.valid && !onSubmit") The passwords does not match
       .row
         div
           label(for='nameInput') Name

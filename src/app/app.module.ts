@@ -1,5 +1,7 @@
 import { AuthGuard } from './_guards/auth.guard';
 import { AlertComponent } from './_directives/alert.component';
+import { ValidateEqualDirective } from './_directives/validate-equal.directive';
+import { ValidEmailDirective } from './_directives/valid-email.directive';
 import { requestOptionsProvider } from './_services/default-request-options.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +30,9 @@ import { RegisterComponent } from './register/register.component';
     AlertComponent,
     HomeComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ValidateEqualDirective,
+    ValidEmailDirective
   ],
   imports: [
     BrowserModule,

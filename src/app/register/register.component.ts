@@ -45,7 +45,9 @@ export class RegisterComponent implements OnInit {
                 this.router.navigate(["/"]);
               }
               else {
-                this.alertService.error(data.errors[0]);
+                data.errors.forEach(element => {
+                  this.alertService.error(element);
+                });
               }
             },
             error => {

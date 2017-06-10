@@ -52,7 +52,10 @@ export class LoginComponent implements OnInit {
               this.router.navigate([this.returnUrl]);
             }
             else {
-              this.alertService.error(data.errors[0]);
+              data.errors.forEach(element => {
+                this.alertService.error(element);
+              });
+              
             }
           },
           error => {

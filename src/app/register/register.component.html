@@ -10,27 +10,29 @@
       <div class="row">
         <div>
           <label for="emailInput">Email</label>
-          <input class="u-full-width" id="emailInput" type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required="required"/>
+          <input class="u-full-width" id="emailInput" type="text" name="email" [(ngModel)]="user.email" #email="ngModel" validateEmail="validateEmail" required="required"/>
           <div class="alert-danger" *ngIf="email.errors &amp;&amp; f.submitted">
             <p [hidden]="!email.errors.required">The email is required</p>
+            <p [hidden]="email.valid &amp;&amp; !onSubmit">Not a valid email</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div>
           <label for="passwordInput">Password</label>
-          <input class="u-full-width" id="passwordInput" type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required="required"/>
+          <input class="u-full-width" id="passwordInput" type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required="required" minlength="6"/>
           <div class="alert-danger" *ngIf="password.errors &amp;&amp; f.submitted">
             <p [hidden]="!password.errors.required &amp;&amp; !onSubmit">The password is required</p>
+            <p [hidden]="!password.errors.minlength &amp;&amp; !onSubmit">The minimum length is 6</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div>
           <label for="confirmPasswordInput">Confirm password</label>
-          <input class="u-full-width" id="confirmPasswordInput" type="password" name="confirm-password" [(ngModel)]="user.password_confirmation" #confirmPassword="ngModel" required="required"/>
-          <div class="alert-danger" *ngIf="confirmPassword.errors &amp;&amp; f.submitted">
-            <p [hidden]="!confirmPassword.errors.required &amp;&amp; !onSubmit">This field is required.</p>
+          <input class="u-full-width" id="confirmPasswordInput" type="password" name="confirm-password" [(ngModel)]="user.password_confirmation" validateEqual="password" #confirmPassword="ngModel"/>
+          <div class="alert-danger" *ngIf="!confirmPassword.valid &amp;&amp; f.submitted">
+            <p [hidden]="confirmPassword.valid &amp;&amp; !onSubmit">The passwords does not match</p>
           </div>
         </div>
       </div>
